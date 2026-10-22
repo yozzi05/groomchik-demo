@@ -1,0 +1,164 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/manrope';
+@import '@fontsource/playfair-display/cyrillic-500.css';
+@import '@fontsource/playfair-display/cyrillic-500-italic.css';
+@import '@fontsource/playfair-display/latin-500.css';
+@import '@fontsource/playfair-display/latin-500-italic.css';
+
+@theme {
+  --font-sans: 'Manrope Variable', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  /* Brand: azure from the original logo ring, butter from its stars, graphite from the cat */
+  --color-milk: #fbf8f2;
+  --color-paper: #ffffff;
+  --color-cream: #f5efe3;
+  --color-ink: #1f2328;
+  --color-ink-2: #4b5260;
+  --color-line: #e4dccd;
+  --color-brand: #0a6fdb;
+  --color-brand-deep: #0753a6;
+  --color-brand-soft: #e4effc;
+  --color-butter: #f8c838;
+  --color-butter-soft: #fbefc6;
+  --color-danger: #b3261e;
+  --color-danger-soft: #fbe9e7;
+  --color-ok: #1d6f47;
+  --color-ok-soft: #e3f3ea;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-milk);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+  .eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brand-deep);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.875rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.2;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn:disabled { cursor: not-allowed; opacity: 0.5; }
+  .btn-primary { background: var(--color-brand); color: #fff; }
+  .btn-primary:hover:not(:disabled) { background: var(--color-brand-deep); }
+  .btn-ghost { border: 1.5px solid var(--color-ink); color: var(--color-ink); background: transparent; }
+  .btn-ghost:hover:not(:disabled) { background: var(--color-ink); color: #fff; }
+  .btn-soft { background: var(--color-brand-soft); color: var(--color-brand-deep); }
+  .btn-soft:hover:not(:disabled) { background: #d3e5fa; }
+  .btn-danger { background: var(--color-danger); color: #fff; }
+  .btn-danger:hover:not(:disabled) { background: #8f1e18; }
+  .btn-sm { min-height: 2.5rem; padding: 0.4rem 1rem; font-size: 0.9375rem; }
+
+  .link {
+    color: var(--color-brand-deep);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+  .link:hover { color: var(--color-ink); }
+
+  .card {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+  }
+
+  .field-label { display: block; font-weight: 700; font-size: 0.9375rem; margin-bottom: 0.375rem; }
+  .field-hint { font-size: 0.875rem; color: var(--color-ink-2); margin-top: 0.25rem; }
+  .field-error { font-size: 0.875rem; color: var(--color-danger); margin-top: 0.375rem; font-weight: 600; }
+  .input {
+    width: 100%;
+    min-height: 2.875rem;
+    border: 1.5px solid var(--color-line);
+    background: #fff;
+    border-radius: 0.75rem;
+    padding: 0.625rem 0.875rem;
+    font-size: 1rem;
+    color: var(--color-ink);
+  }
+  .input:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 0; border-color: var(--color-brand); }
+  .input[aria-invalid='true'] { border-color: var(--color-danger); }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.5rem;
+    padding: 0.4rem 0.95rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--color-line);
+    background: #fff;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  .chip:hover { border-color: var(--color-ink-2); }
+  .chip[aria-pressed='true'], .chip[aria-checked='true'], .chip[aria-selected='true'] {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+    color: #fff;
+  }
+  .chip:disabled { opacity: 0.45; cursor: not-allowed; text-decoration: line-through; }
+
+  .demo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: var(--color-butter-soft);
+    color: #5e4500;
+    border: 1px dashed #b8901a;
+  }
+
+  /* Arched photo frame: the house "window" motif */
+  .frame-arch { border-radius: 999px 999px 1.5rem 1.5rem; overflow: hidden; }
+  .frame-leaf { border-radius: 2.5rem 0.5rem 2.5rem 0.5rem; overflow: hidden; }
+}
