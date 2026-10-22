@@ -17,13 +17,17 @@ const filters: { id: Filter; label: string }[] = [
   { id: 'molt', label: workTags.molt },
 ]
 
+const tints = ['bg-butter-soft', 'bg-brand-soft', 'bg-cream']
+
 export default function Works() {
   const [filter, setFilter] = useState<Filter>('all')
   const [openId, setOpenId] = useState<string>()
+  const [showAll, setShowAll] = useState(false)
   const navigate = useNavigate()
   const { setDraft } = useDemo()
 
   const list = useMemo(() => works.filter((w) => filter === 'all' || w.species === filter || w.tag === filter), [filter])
+  const visible = showAll ? list : list.slice(0, 8)
   const idx = list.findIndex((w) => w.id === openId)
   const current: Work | undefined = list[idx]
 
@@ -41,9 +45,9 @@ export default function Works() {
           <div>
             <p className="eyebrow">Наши работы</p>
             <h2 id="works-title" className="display mt-3 text-4xl sm:text-5xl">
-              Работы мастеров <em>и&nbsp;креативный груминг</em>
+              Работы мастеров <em>и&nbsp;выставочный груминг</em>
             </h2>
-            <p className="mt-3 max-w-2xl text-ink-2">Фотографии с сайта салона в едином оформлении. Нажмите на фото, чтобы рассмотреть его и записаться на похожий уход.</p>
+            <p className="mt-3 max-w-2xl text-ink-2">Фотографии с сайта салона. Нажмите на фото, чтобы рассмотреть его и записаться на похожий уход.</p>
           </div>
         </div>
 
@@ -59,26 +63,30 @@ export default function Works() {
           Показано работ: {list.length}
         </p>
 
-        <ul className="mt-8 grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-x-5 md:grid-cols-3 lg:grid-cols-5" aria-label="Работы">
-          {list.map((w) => (
-            <li key={w.id}>
-              <button type="button" onClick={() => setOpenId(w.id)} className="group block w-full text-left">
-                <span className={`block aspect-[4/5] overflow-hidden rounded-[1.25rem] ${w.cutout ? 'bg-butter-soft' : 'bg-cream'}`}>
-                  <Img
-                    src={`${w.img}.webp`}
-                    alt={w.caption}
-                    sizes="(min-width: 1024px) 20vw, (min-width: 768px) 33vw, 50vw"
-                    className={`h-full w-full transition-transform duration-300 group-hover:scale-[1.04] ${w.cutout ? 'object-contain object-bottom px-4 pt-5 sm:px-5 sm:pt-6' : 'object-cover'}`}
-                  />
-                </span>
-                <span className="mt-2.5 flex items-start justify-between gap-2 text-[0.9375rem] font-semibold leading-snug">
+        <ul className="mt-8 columns-2 gap-3 sm:gap-4 md:columns-3 xl:columns-4" aria-label="Работы">
+          {visible.map((w, i) => (
+            <li key={w.id} className="mb-3 break-inside-avoid sm:mb-4">
+              <button
+                type="button"
+                onClick={() => setOpenId(w.id)}
+                className={`group relative block w-full overflow-hidden rounded-[1.25rem] text-left ${w.cutout ? tints[i % tints.length] : 'bg-cream'} ${i % 5 === 1 ? 'frame-leaf' : ''}`}
+              >
+                <Img src={`${w.img}.webp`} alt={w.caption} sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw" className={`w-full transition-transform duration-300 group-hover:scale-[1.03] ${w.cutout ? 'p-4 sm:p-6' : ''}`} />
+                <span className="flex items-center justify-between gap-2 bg-paper/0 px-3 pb-3 text-[0.875rem] font-semibold sm:px-4">
                   <span className="line-clamp-2">{w.caption}</span>
-                  <Icon name="arrow" size={16} className="mt-0.5 shrink-0 text-brand opacity-60 group-hover:opacity-100" />
+                  <Icon name="arrow" size={16} className="shrink-0 opacity-60 group-hover:opacity-100" />
                 </span>
               </button>
             </li>
           ))}
         </ul>
+        {visible.length < list.length && (
+          <div className="mt-4 text-center">
+            <button type="button" className="btn btn-ghost" onClick={() => setShowAll(true)}>
+              Показать все работы ({list.length})
+            </button>
+          </div>
+        )}
       </div>
 
       <Modal open={!!current} onClose={() => setOpenId(undefined)} title={current?.caption ?? ''} size="lg">

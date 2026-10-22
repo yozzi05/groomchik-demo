@@ -1,4 +1,40 @@
 {
+ "alena.webp": [
+  525,
+  700
+ ],
+ "bichon-rosette-480.webp": [
+  480,
+  640
+ ],
+ "bichon-rosette-900.webp": [
+  900,
+  1200
+ ],
+ "cat-british-480.webp": [
+  480,
+  739
+ ],
+ "cat-british-800.webp": [
+  646,
+  994
+ ],
+ "cat-express-480.webp": [
+  480,
+  402
+ ],
+ "cat-express-800.webp": [
+  800,
+  670
+ ],
+ "cat-towel-480.webp": [
+  480,
+  585
+ ],
+ "cat-towel-800.webp": [
+  800,
+  976
+ ],
  "cert-1.webp": [
   520,
   733
@@ -22,6 +58,38 @@
  "cert-6.webp": [
   520,
   740
+ ],
+ "creative-bichons-480.webp": [
+  480,
+  640
+ ],
+ "creative-bichons-900.webp": [
+  900,
+  1200
+ ],
+ "creative-bichons-inna-480.webp": [
+  480,
+  853
+ ],
+ "creative-bichons-inna-720.webp": [
+  720,
+  1280
+ ],
+ "creative-poodle-480.webp": [
+  480,
+  640
+ ],
+ "creative-poodle-900.webp": [
+  900,
+  1200
+ ],
+ "french-bulldog-480.webp": [
+  480,
+  851
+ ],
+ "french-bulldog-800.webp": [
+  513,
+  909
  ],
  "inna-480.webp": [
   480,
@@ -55,17 +123,21 @@
   600,
   800
  ],
+ "inna-award.webp": [
+  139,
+  410
+ ],
  "logo.png": [
   270,
   270
  ],
- "master-alena-480.webp": [
-  345,
-  431
+ "poodle-trophies-480.webp": [
+  480,
+  640
  ],
- "master-alena-960.webp": [
-  345,
-  431
+ "poodle-trophies-900.webp": [
+  900,
+  1200
  ],
  "price-cats.jpg": [
   495,
@@ -95,6 +167,14 @@
   495,
   700
  ],
+ "puppy-bath-400.webp": [
+  400,
+  547
+ ],
+ "puppy-bath-560.webp": [
+  556,
+  760
+ ],
  "school-cert-sample.jpg": [
   495,
   700
@@ -103,83 +183,19 @@
   900,
   868
  ],
- "work-bichons-480.webp": [
-  480,
-  600
- ],
- "work-bichons-960.webp": [
-  760,
-  950
- ],
- "work-bichons-inna-480.webp": [
-  480,
-  600
- ],
- "work-bichons-inna-960.webp": [
-  720,
-  900
- ],
- "work-cat-british-480.webp": [
-  480,
-  739
- ],
- "work-cat-british-960.webp": [
-  646,
-  994
- ],
- "work-cat-molt-480.webp": [
-  480,
-  402
- ],
- "work-cat-molt-960.webp": [
-  960,
-  803
- ],
- "work-cat-towel-480.webp": [
-  480,
-  585
- ],
- "work-cat-towel-960.webp": [
-  883,
-  1077
- ],
- "work-frenchie-480.webp": [
-  480,
-  851
- ],
- "work-frenchie-960.webp": [
-  513,
-  909
- ],
- "work-poodle-480.webp": [
-  480,
-  600
- ],
- "work-poodle-960.webp": [
-  900,
-  1125
- ],
- "work-puppy-bath-480.webp": [
-  480,
-  656
- ],
- "work-puppy-bath-960.webp": [
-  556,
-  760
- ],
- "work-westie-480.webp": [
+ "westie-480.webp": [
   480,
   470
  ],
- "work-westie-960.webp": [
+ "westie-800.webp": [
   786,
   770
  ],
- "work-yorkie-480.webp": [
+ "yorkie-pink-bow-480.webp": [
   480,
   644
  ],
- "work-yorkie-960.webp": [
+ "yorkie-pink-bow-800.webp": [
   570,
   765
  ],
@@ -190,5 +206,21 @@
  "yorkie-red-bow-900.webp": [
   768,
   887
+ ],
+ "yorkie-show-480.webp": [
+  480,
+  640
+ ],
+ "yorkie-show-900.webp": [
+  900,
+  1200
+ ],
+ "yorkie-table-480.webp": [
+  480,
+  640
+ ],
+ "yorkie-table-900.webp": [
+  900,
+  1200
  ]
 }

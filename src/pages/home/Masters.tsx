@@ -70,8 +70,8 @@ export default function Masters() {
           <article key={m.id} className={`grid gap-5 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:items-end ${i === 1 ? 'md:mt-16' : ''}`}>
             <div className={`${i === 0 ? 'frame-arch bg-butter-soft' : 'frame-leaf bg-brand-soft'} overflow-hidden`}>
               <Img
-                src={m.id === 'inna' ? 'inna-480.webp' : 'master-alena-480.webp'}
-                srcLarge={m.id === 'inna' ? 'inna-835.webp' : 'master-alena-960.webp'}
+                src={m.id === 'inna' ? 'inna-480.webp' : 'alena.webp'}
+                srcLarge={m.id === 'inna' ? 'inna-835.webp' : undefined}
                 sizes="(min-width: 768px) 22vw, 80vw"
                 alt={m.photoAlt}
                 className={`w-full ${m.id === 'inna' ? 'aspect-[4/5] object-contain object-bottom pt-6' : 'aspect-[4/5] object-cover'}`}
