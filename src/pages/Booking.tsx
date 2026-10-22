@@ -555,7 +555,7 @@ function StepPlace({ draft, setDraft, errors }: { draft: BookingDraft; setDraft:
               onClick={() => setDraft({ masterId: m.id, ...reset })}
               className={`flex items-center gap-3 rounded-2xl border-2 px-4 py-3 text-left ${draft.masterId === m.id ? 'border-ink bg-cream' : 'border-line hover:border-ink-2'}`}
             >
-              <Img src={m.id === 'inna' ? 'inna-480.webp' : 'alena.webp'} alt="" className="h-12 w-12 shrink-0 rounded-full bg-butter-soft object-cover object-top" />
+              <Img src={m.id === 'inna' ? 'inna-480.webp' : 'master-alena-480.webp'} alt="" className="h-12 w-12 shrink-0 rounded-full bg-butter-soft object-cover object-top" />
               <span>
                 <b className="block">{m.name}</b>
                 <span className="text-[0.875rem] text-ink-2">{m.experience}</span>

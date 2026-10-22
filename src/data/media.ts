@@ -2,6 +2,7 @@
 // Все изображения скачаны с groomchik.ru (static.tildacdn.com) и оптимизированы скриптом scripts/assets.mjs.
 // Подписи описывают только то, что видно на фото: истории и клички животным не приписываются.
 // Настоящих пар «до/после» одного животного на сайте нет, поэтому сравнение не делается.
+// Пёстрые фото с конкурсов не используются; оставшиеся приведены к единому кадру 4:5 и мягкой обработке.
 
 import type { Species } from './services'
 
@@ -20,26 +21,22 @@ export interface Work {
 
 export const workTags: Record<WorkTag, string> = {
   haircut: 'Стрижки',
-  creative: 'Выставки и креатив',
+  creative: 'Креативный груминг',
   care: 'Купание и гигиена',
   molt: 'Линька',
 }
 
 export const works: Work[] = [
-  { id: 'w1', img: 'yorkie-pink-bow-480', large: 'yorkie-pink-bow-800', species: 'dog', tag: 'haircut', serviceId: 'dog-haircut', caption: 'Йоркширский терьер с длинной шерстью и бантом', cutout: true },
-  { id: 'w2', img: 'creative-bichons-inna-480', large: 'creative-bichons-inna-720', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Бишоны с креативным окрашиванием и Инна Бродилова' },
-  { id: 'w3', img: 'westie-480', large: 'westie-800', species: 'dog', tag: 'haircut', serviceId: 'dog-haircut', caption: 'Вест-хайленд-уайт-терьер после стрижки', cutout: true },
-  { id: 'w4', img: 'cat-express-480', large: 'cat-express-800', species: 'cat', tag: 'molt', serviceId: 'cat-express', caption: 'Кошка и вычесанный подшёрсток после экспресс-линьки', cutout: true },
-  { id: 'w5', img: 'yorkie-show-480', large: 'yorkie-show-900', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Йоркширский терьер на груминг-столе на конкурсе' },
-  { id: 'w6', img: 'cat-towel-480', large: 'cat-towel-800', species: 'cat', tag: 'care', serviceId: 'cat-bath', caption: 'Кот в полотенце после купания', cutout: true },
-  { id: 'w7', img: 'creative-poodle-480', large: 'creative-poodle-900', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Пудель с креативной стрижкой и окрашиванием' },
-  { id: 'w8', img: 'french-bulldog-480', large: 'french-bulldog-800', species: 'dog', tag: 'care', serviceId: 'dog-hygiene', caption: 'Французский бульдог с чистой гладкой шерстью', cutout: true },
-  { id: 'w9', img: 'bichon-rosette-480', large: 'bichon-rosette-900', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Бишон с наградной розеткой на конкурсе' },
-  { id: 'w10', img: 'cat-british-480', large: 'cat-british-800', species: 'cat', tag: 'care', serviceId: 'cat-bath', caption: 'Британская кошка с чистой, расчёсанной шерстью', cutout: true },
-  { id: 'w11', img: 'puppy-bath-400', large: 'puppy-bath-560', species: 'dog', tag: 'care', serviceId: 'dog-hygiene', caption: 'Купание маленькой собаки в тазике', cutout: true },
-  { id: 'w12', img: 'creative-bichons-480', large: 'creative-bichons-900', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Два бишона с окрашенными ушками' },
-  { id: 'w13', img: 'yorkie-table-480', large: 'yorkie-table-900', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Йоркширский терьер с бантом рядом с кубком' },
-  { id: 'w14', img: 'poodle-trophies-480', large: 'poodle-trophies-900', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Инна с работой и кубками на конкурсе' },
+  { id: 'w1', img: 'work-yorkie-480', large: 'work-yorkie-960', species: 'dog', tag: 'haircut', serviceId: 'dog-haircut', caption: 'Йоркширский терьер с длинной шерстью и бантом', cutout: true },
+  { id: 'w2', img: 'work-bichons-480', large: 'work-bichons-960', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Два бишона с окрашенными ушками' },
+  { id: 'w3', img: 'work-westie-480', large: 'work-westie-960', species: 'dog', tag: 'haircut', serviceId: 'dog-haircut', caption: 'Вест-хайленд-уайт-терьер после стрижки', cutout: true },
+  { id: 'w4', img: 'work-cat-molt-480', large: 'work-cat-molt-960', species: 'cat', tag: 'molt', serviceId: 'cat-express', caption: 'Кошка и вычесанный подшёрсток после экспресс-линьки', cutout: true },
+  { id: 'w5', img: 'work-poodle-480', large: 'work-poodle-960', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Пудель с креативной стрижкой и окрашиванием' },
+  { id: 'w6', img: 'work-cat-towel-480', large: 'work-cat-towel-960', species: 'cat', tag: 'care', serviceId: 'cat-bath', caption: 'Кот в полотенце после купания', cutout: true },
+  { id: 'w7', img: 'work-frenchie-480', large: 'work-frenchie-960', species: 'dog', tag: 'care', serviceId: 'dog-hygiene', caption: 'Французский бульдог с чистой гладкой шерстью', cutout: true },
+  { id: 'w8', img: 'work-bichons-inna-480', large: 'work-bichons-inna-960', species: 'dog', tag: 'creative', serviceId: 'dog-haircut', caption: 'Бишоны с креативным окрашиванием и Инна Бродилова' },
+  { id: 'w9', img: 'work-cat-british-480', large: 'work-cat-british-960', species: 'cat', tag: 'care', serviceId: 'cat-bath', caption: 'Британская кошка с чистой, расчёсанной шерстью', cutout: true },
+  { id: 'w10', img: 'work-puppy-bath-480', large: 'work-puppy-bath-960', species: 'dog', tag: 'care', serviceId: 'dog-hygiene', caption: 'Купание маленькой собаки в тазике', cutout: true },
 ]
 
 export const workById = (id: string | undefined) => works.find((w) => w.id === id)
